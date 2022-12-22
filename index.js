@@ -17,7 +17,7 @@ async function run() {
     await client.connect()
     console.log('connected');
     const productCullection=client.db('groceryDB').collection('product');
-    app.get("/products",async(req,res)=>{
+    app.get("/",async(req,res)=>{
      
       const query={};
       const cursor=productCullection.find(query);
@@ -40,11 +40,6 @@ run().catch(err=>console.log(err+"kawsar"))
 
 
 //index.js
-app.get('/', (req, res) => {
-    res.sendFile('index.html', {root: path.join(__dirname, 'public')});
-  })
-app.get('/hello', (req, res) => {
-    res.send("hllwo ");
-  })
+
 
 app.listen(process.env.PORT || 3000);
